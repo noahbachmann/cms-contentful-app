@@ -1,4 +1,4 @@
-import ContentfulImage from "@/lib/contentful-image";
+import ContentfulImage from '@/lib/contentful-image'
 
 export default function Avatar({
   name,
@@ -11,14 +11,14 @@ export default function Avatar({
     <div className="flex items-center">
       <div className="mr-4 w-12 h-12">
         <ContentfulImage
-          alt={name}
+          alt={ name }
           className="object-cover h-full rounded-full"
-          height={48}
-          width={48}
-          src={picture.url}
+          height={ 48 }
+          width={ 48 }
+          src={ picture.url }
         />
       </div>
       <div className="text-xl font-bold">{name}</div>
     </div>
-  );
+  )
 }

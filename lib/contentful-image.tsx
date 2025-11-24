@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import Image from "next/image";
+import Image from 'next/image'
 
 interface ContentfulImageProps {
   src: string;
@@ -10,9 +10,9 @@ interface ContentfulImageProps {
 }
 
 const contentfulLoader = ({ src, width, quality }: ContentfulImageProps) => {
-  return `${src}?w=${width}&q=${quality || 75}`;
-};
+  return `${src}?w=${width}&q=${quality || 75}`
+}
 
 export default function ContentfulImage(props: ContentfulImageProps) {
-  return <Image alt={props.alt} loader={contentfulLoader} {...props} />;
+  return <Image alt={ props.alt } loader={ contentfulLoader } { ...props } />
 }

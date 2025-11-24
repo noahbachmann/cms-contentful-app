@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
+import Image from 'next/image'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { BLOCKS } from '@contentful/rich-text-types'
 
 interface Asset {
   sys: {
@@ -28,13 +28,13 @@ function RichTextAsset({
   id: string;
   assets: Asset[] | undefined;
 }) {
-  const asset = assets?.find((asset) => asset.sys.id === id);
+  const asset = assets?.find((asset) => asset.sys.id === id)
 
   if (asset?.url) {
-    return <Image src={asset.url} layout="fill" alt={asset.description} />;
+    return <Image src={ asset.url } layout="fill" alt={ asset.description } />
   }
 
-  return null;
+  return null
 }
 
 export function Markdown({ content }: { content: Content }) {
@@ -42,10 +42,10 @@ export function Markdown({ content }: { content: Content }) {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => (
         <RichTextAsset
-          id={node.data.target.sys.id}
-          assets={content.links.assets.block}
+          id={ node.data.target.sys.id }
+          assets={ content.links.assets.block }
         />
       ),
     },
-  });
+  })
 }
